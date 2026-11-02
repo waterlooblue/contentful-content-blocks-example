@@ -1,6 +1,9 @@
-require('dotenv').config();
+import type { GatsbyConfig } from 'gatsby';
+import dotenv from 'dotenv';
 
-module.exports = {
+dotenv.config();
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
     siteUrl: `https://www.yourdomain.tld`
@@ -8,12 +11,12 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-source-contentful`,
-        options: {
-          accessToken: process.env.ACCESS_TOKEN,
-          spaceId: process.env.SPACE_ID,
-          host: process.env.NODE_ENV === 'production' ? process.env.HOST : process.env.PREVIEW_HOST,
-          enableTags: true
-        },
+      options: {
+        accessToken: process.env.ACCESS_TOKEN,
+        spaceId: process.env.SPACE_ID,
+        host: process.env.NODE_ENV === 'production' ? process.env.HOST : process.env.PREVIEW_HOST,
+        enableTags: true
+      },
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
@@ -28,8 +31,11 @@ module.exports = {
           '@pages': './src/pages',
           '@styles': './src/styles',
           '@queries': './src/queries',
+          '@typings': './src/types',
         },
       },
     },
   ]
 };
+
+export default config;

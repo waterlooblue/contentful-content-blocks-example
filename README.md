@@ -15,7 +15,7 @@
 
 2.  **Create your content types**
 
-    Update the fragments with the names of your own content types before moving on to the next step.
+    Update the fragments in `src/queries` with the names of your own content types, and keep the matching TypeScript types in `src/types/contentful.ts` in sync, before moving on to the next step.
 
 3.  **Start developing.**
 
@@ -29,4 +29,12 @@
 
     Your site is now running at http://localhost:8000!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    Edit `src/pages/index.tsx` to see your site update in real-time!
+
+5.  **Type check**
+
+    The project is written in TypeScript. Run the type checker with:
+
+    ```shell
+    npm run typecheck
+    ```

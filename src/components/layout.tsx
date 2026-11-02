@@ -2,7 +2,11 @@ import React from 'react';
 
 import '@styles/custom.scss';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children?: React.ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <header>Header</header>
