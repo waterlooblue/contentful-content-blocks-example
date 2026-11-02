@@ -4,7 +4,13 @@ import Blog from '@components/blocks/blog';
 import Author from '@components/blocks/author';
 import type { ContentBlock } from '@typings/contentful';
 
-// List of dynamic components
+// Maps each Contentful `__typename` to the component that renders it.
+// The type below requires an entry for every member of the ContentBlock
+// union, so `npm run typecheck` fails if a block type has no component.
+//
+// Note: these are static imports, so every block component is bundled with
+// the post template. If you add large blocks, load them lazily with
+// React.lazy. See docs/content-blocks.md.
 const components: {
   [K in ContentBlock['__typename']]: React.ComponentType<{ data: Extract<ContentBlock, { __typename: K }> }>;
 } = {
