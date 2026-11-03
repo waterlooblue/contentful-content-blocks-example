@@ -1,10 +1,13 @@
 import React from 'react';
 
-import type { BlockProps, ContentfulAuthor } from '@typings/contentful';
+import type { BlockProps, Author as AuthorBlock } from '../../types/contentful';
 
-const Author = ({ data }: BlockProps<ContentfulAuthor>) => {
+const Author = ({ data }: BlockProps<AuthorBlock>) => {
   return (
-    <div>Author</div>
+    <aside>
+      <strong>{data.name}</strong>
+      {data.title && <span> · {data.title}</span>}
+    </aside>
   )
 }
 

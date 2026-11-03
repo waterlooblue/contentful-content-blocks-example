@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '@styles/custom.scss';
+import '../styles/custom.scss';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -9,7 +9,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <header>Header</header>
+      <header><a href="/">Header</a></header>
       <main>{children}</main>
       <footer>Footer</footer>
     </>

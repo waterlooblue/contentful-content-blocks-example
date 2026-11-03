@@ -1,21 +1,21 @@
 import React from 'react';
 
-import Blog from '@components/blocks/blog';
-import Author from '@components/blocks/author';
-import type { ContentBlock } from '@typings/contentful';
+import Blog from './blocks/blog';
+import Author from './blocks/author';
+import type { ContentBlock } from '../types/contentful';
 
 // Maps each Contentful `__typename` to the component that renders it.
 // The type below requires an entry for every member of the ContentBlock
 // union, so `npm run typecheck` fails if a block type has no component.
 //
-// Note: these are static imports, so every block component is bundled with
-// the post template. If you add large blocks, load them lazily with
+// Note: these are static imports, so every block component is in the same
+// JavaScript chunk. If you add large blocks, load them lazily with
 // React.lazy. See docs/content-blocks.md.
 const components: {
   [K in ContentBlock['__typename']]: React.ComponentType<{ data: Extract<ContentBlock, { __typename: K }> }>;
 } = {
-  ContentfulBlog: Blog,
-  ContentfulAuthor: Author,
+  Blog,
+  Author,
 };
 
 interface BlocksProps {
@@ -27,7 +27,7 @@ const Blocks = ({ data }: BlocksProps) => {
   if (Component) {
     return <Component data={data} />;
   }
-  console.log('Missing component for type: ' + data?.__typename);
+  console.warn('Missing component for type: ' + data?.__typename);
   return null;
 }
 

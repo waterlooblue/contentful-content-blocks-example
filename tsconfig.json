@@ -1,29 +1,17 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@common/*": ["src/components/common/*"],
-      "@images/*": ["src/images/*"],
-      "@pages/*": ["src/pages/*"],
-      "@styles/*": ["src/styles/*"],
-      "@queries/*": ["src/queries/*"],
-      "@typings/*": ["src/types/*"]
-    }
+    "noEmit": true
   },
-  "include": ["src/**/*", "gatsby-config.ts", "gatsby-node.ts"],
-  "exclude": ["node_modules", "public", ".cache"]
+  "include": ["src", "vite.config.ts"]
 }
